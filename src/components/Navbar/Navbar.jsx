@@ -8,7 +8,7 @@ const Navbar = () => {
 				<Image src='/logo.png' h={20} display={{ base: "none", sm: "block" }} cursor={"pointer"} />
 				<Flex gap={4}>
 					<Link to='/auth'>
-						<Button colorScheme={"blue"} size={"sm"}>
+						<Button colorScheme={"purple"} size={"sm"}>
 							Login
 						</Button>
 					</Link>

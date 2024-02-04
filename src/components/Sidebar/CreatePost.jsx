@@ -187,12 +187,14 @@ function useCreatePost() {
 
       await updateDoc(userDocRef, { posts: arrayUnion(postDocRef.id) });
       await uploadString(imageRef, selectedFile, "data_url");
+      
+      if(postType !== Nebulog){
       const downloadURL = await getDownloadURL(imageRef);
 
       await updateDoc(postDocRef, { imageURL: downloadURL });
 
       newPost.imageURL = downloadURL;
-
+      }
       if (userProfile.uid === authUser.uid)
         createPost({ ...newPost, id: postDocRef.id });
 

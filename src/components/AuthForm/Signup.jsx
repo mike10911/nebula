@@ -91,7 +91,7 @@ const Signup = () => {
 
       <Button
         w={"full"}
-        colorScheme="blue"
+        colorScheme="purple"
         size={"sm"}
         fontSize={14}
         isLoading={loading}

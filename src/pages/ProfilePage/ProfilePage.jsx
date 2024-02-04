@@ -60,7 +60,7 @@ const UserNotFound = () => {
 	return (
 		<Flex flexDir='column' textAlign={"center"} mx={"auto"}>
 			<Text fontSize={"2xl"}>User Not Found</Text>
-			<Link as={RouterLink} to={"/"} color={"blue.500"} w={"max-content"} mx={"auto"}>
+			<Link as={RouterLink} to={"/"} color={"purple.400"} w={"max-content"} mx={"auto"}>
 				Go home
 			</Link>
 		</Flex>

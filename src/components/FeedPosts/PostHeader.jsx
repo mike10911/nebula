@@ -32,7 +32,7 @@ const PostHeader = ({ post, creatorProfile }) => {
 					size={"xs"}
 					bg={"transparent"}
 					fontSize={12}
-					color={"blue.500"}
+					color={"red.500"}
 					fontWeight={"bold"}
 					_hover={{
 						color: "white",

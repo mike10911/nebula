@@ -120,11 +120,11 @@ const EditProfile = ({ isOpen, onClose }) => {
 										Cancel
 									</Button>
 									<Button
-										bg={"blue.400"}
+										bg={"purple.400"}
 										color={"white"}
 										size='sm'
 										w='full'
-										_hover={{ bg: "blue.500" }}
+										_hover={{ bg: "purple.400" }}
 										onClick={handleEditProfile}
 										isLoading={isUpdating}
 									>
@@ -213,11 +213,11 @@ export default EditProfile;
 // 										Cancel
 // 									</Button>
 // 									<Button
-// 										bg={"blue.400"}
+// 										bg={"purple.400"}
 // 										color={"white"}
 // 										size='sm'
 // 										w='full'
-// 										_hover={{ bg: "blue.500" }}
+// 										_hover={{ bg: "purple.400" }}
 // 									>
 // 										Submit
 // 									</Button>
