@@ -39,6 +39,15 @@ const Signup = () => {
 				value={inputs.fullName}
 				onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
 			/>
+			<Input
+				placeholder='User Type'
+				fontSize={14}
+				type='text'
+				size={"sm"}
+				value={inputs.type}
+				onChange={(e) => setInputs({ ...inputs, type: e.target.value })}
+			/>
+			<InputGroup>
 			<InputGroup>
 				<Input
 					placeholder='Password'
