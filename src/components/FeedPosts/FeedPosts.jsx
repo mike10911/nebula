@@ -27,7 +27,7 @@ const FeedPosts = () => {
 			{!isLoading && posts.length === 0 && (
 				<>
 					<Text fontSize={"md"} color={"purple.400"}>
-					  Add some friends & get involved in (the) Space! 
+					Add some friends & get involved in (the) Space! 
 					</Text>
 				</>
 			)}
