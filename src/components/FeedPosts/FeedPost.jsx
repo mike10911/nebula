@@ -12,7 +12,7 @@ const FeedPost = ({ post }) => {
     <>
       <PostHeader post={post} creatorProfile={userProfile} />
       <Box my={2}>
-        {post.postType === "Article" && (
+        {post.type === "Article" && (
           <>
             <Heading as="h1" size="xl" noOfLines={1}>
               {post.headLine}
