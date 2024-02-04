@@ -43,7 +43,7 @@ const useSignUpWithEmailAndPassword = () => {
 					following: [],
 					posts: [],
 					createdAt: Date.now(),
-					type: inputs.type,
+					role: inputs.role,
 				};
 				await setDoc(doc(firestore, "users", newUser.user.uid), userDoc);
 				localStorage.setItem("user-info", JSON.stringify(userDoc));
