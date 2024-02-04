@@ -40,6 +40,8 @@ const CreatePost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [caption, setCaption] = useState("");
   const [postType, setPostType] = useState("");
+  const [headLine, setHeadLine] = useState("");
+  const [contentText, setContentText] = useState("");
   const imageRef = useRef(null);
   const { handleImageChange, selectedFile, setSelectedFile } = usePreviewImg();
   const showToast = useShowToast();
@@ -47,10 +49,12 @@ const CreatePost = () => {
 
   const handlePostCreation = async () => {
     try {
-      await handleCreatePost(selectedFile, caption, postType);
+      await handleCreatePost(selectedFile, caption, postType, headLine, contentText);
       onClose();
       setCaption("");
+      setHeadLine("");
       setPostType("");
+      setContentText("");
       setSelectedFile(null);
     } catch (error) {
       showToast("Error", error.message, "error");
@@ -103,12 +107,38 @@ const CreatePost = () => {
                 <Radio value="Stat">Statistc</Radio>
               </Stack>
             </RadioGroup>
-            <Textarea
-              placeholder="Post caption..."
-              value={caption}
-              onChange={(e) => setCaption(e.target.value)}
-            />
-
+            {postType === "Article" && (
+              <>
+                <Input
+                  placeholder="Head Line"
+                  fontSize={14}
+                  type="text"
+                  size={"sm"}
+                  value={headLine}
+                  onChange={(e) => setHeadLine(e.target.value)}
+                  mb={5}
+                />
+                <Textarea
+                  placeholder="Add Article Content..."
+                  value={contentText}
+                  onChange={(e) => setContentText(e.target.value)}
+                />
+              </>
+            )}
+            {postType === "Nebulog" && (
+              <Textarea
+                placeholder="Add Nebulog thoughts..."
+                value={caption}
+                onChange={(e) => setCaption(e.target.value)}
+              />
+            )}
+            {postType === "Stat" && (
+              <Textarea
+                placeholder="Add Statistic Data"
+                value={caption}
+                onChange={(e) => setCaption(e.target.value)}
+              />
+            )}
             <Input
               type="file"
               hidden
@@ -167,13 +197,21 @@ function useCreatePost() {
   const userProfile = useUserProfileStore((state) => state.userProfile);
   const { pathname } = useLocation();
 
-  const handleCreatePost = async (selectedFile, caption, postType) => {
+  const handleCreatePost = async (
+    selectedFile,
+    caption,
+    postType,
+    headLine,
+    contentText
+  ) => {
     if (isLoading) return;
     if (!selectedFile) throw new Error("Please select an image");
     setIsLoading(true);
     const newPost = {
       type: postType,
       caption: caption,
+      headLine: headLine,
+      contentText: contentText,
       likes: [],
       comments: [],
       createdAt: Date.now(),
