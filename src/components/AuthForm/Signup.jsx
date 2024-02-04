@@ -17,7 +17,7 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
-	role: ""
+    role: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const { loading, error, signup } = useSignUpWithEmailAndPassword();
@@ -70,9 +70,12 @@ const Signup = () => {
       <Text fontSize={14} color={"gray.500"}>
         Select your role
       </Text>
-      <RadioGroup onChange={(e)=> setInputs({...inputs, role: e.target.value})}>
+      <RadioGroup
+        value={inputs.role}
+        onChange={(e) => setInputs({ ...inputs, role: e })}
+      >
         <Stack direction="row">
-          <Radio value="Enthusist">Enthusist</Radio>
+          <Radio value="Enthusiast">Enthusiast</Radio>
           <Radio value="Student">Student</Radio>
           <Radio value="Educator">Educator</Radio>
           <Radio value="Reseacher">Researcher</Radio>
